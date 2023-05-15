@@ -19,12 +19,12 @@ class MealItem extends StatelessWidget {
         meal.affordability.name.substring(1);
   }
 
-  void openMealDetail(BuildContext context, {required String title}) {
+  void openMealDetail(BuildContext context, {required Meal meal}) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: ((ctx) => MealDetailScreen(
-              title: title,
+              meal: meal,
             )),
       ),
     );
@@ -39,7 +39,7 @@ class MealItem extends StatelessWidget {
       elevation: 2,
       child: InkWell(
         onTap: () {
-          openMealDetail(context, title: meal.title);
+          openMealDetail(context, meal: meal);
         },
         child: Stack(
           children: [
