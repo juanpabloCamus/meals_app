@@ -13,6 +13,11 @@ class MealDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteMeals = ref.watch(favoriteMealsProvider);
+    final Icon icon = favoriteMeals.contains(meal)
+        ? const Icon(Icons.star)
+        : const Icon(Icons.star_border);
+
     return Scaffold(
         appBar: AppBar(
           title: Text(meal.title),
@@ -30,7 +35,7 @@ class MealDetailScreen extends ConsumerWidget {
                 ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text(snackBarText)));
               },
-              icon: const Icon(Icons.star),
+              icon: icon,
             )
           ],
         ),

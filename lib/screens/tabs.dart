@@ -39,7 +39,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       Navigator.push<Map<Filter, bool>>(
         context,
         MaterialPageRoute(
-          builder: (ctx) => FiltersScreen(),
+          builder: (ctx) => const FiltersScreen(),
         ),
       );
     }
